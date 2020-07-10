@@ -1,0 +1,6 @@
+---
+- hosts: jenkin
+  become: yes
+  roles:
+    - jenkins_installation
+

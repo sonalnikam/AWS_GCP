@@ -1,0 +1,6 @@
+---
+- hosts: master
+  become: yes
+  roles:
+    - kubernetes_master
+    - copy_network

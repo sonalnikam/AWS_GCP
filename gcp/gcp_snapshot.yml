@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+  - name: Create gce snapshot
+    gce_snapshot:
+     instance_name: ansible
+     snapshot_name: example-snapshot
+     state: present
+     service_account_email: 354832168831-compute@developer.gserviceaccount.com #service_account_email: project_name@appspot.gserviceaccount.com
+     credentials_file: /home/ubuntu/ansible/gcp/cred.json
+     project_id: nice-ripple-282207
+    delegate_to: localhost
+
