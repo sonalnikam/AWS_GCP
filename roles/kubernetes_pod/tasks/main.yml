@@ -1,0 +1,29 @@
+---
+# tasks file for kubernetes_pod
+- name: Log into DockerHub
+  docker_login:
+    username: sonalnikam
+    password: Min@l2208
+- name: copy docker
+  copy:
+      src: docker.yml
+      dest: /home/ubuntu
+- name: copy pod
+  copy:
+      src: pod.yml
+      dest: /home/ubuntu
+
+- name: copy pod
+  copy:
+      src: mysql.yml
+      dest: /home/ubuntu
+
+
+- name: docker
+  shell: kubectl create -f /home/ubuntu/docker.yml
+- name: pv and pvc
+  shell: kubectl apply -f https://k8s.io/examples/application/mysql/mysql-pv.yaml
+- name: mysql
+  shell:  kubectl apply -f https://k8s.io/examples/application/mysql/mysql-deployment.yaml
+
+

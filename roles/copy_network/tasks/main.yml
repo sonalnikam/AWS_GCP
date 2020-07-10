@@ -1,0 +1,9 @@
+---
+  - name: fetch
+    fetch:
+         src: /home/ubuntu/info.txt
+         dest: /home/ubuntu/ansible/
+         flat: yes
+
+
+
